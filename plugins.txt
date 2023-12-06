@@ -1,5 +1,0 @@
-pipeline
-maven-plugin
-sonar
-github-branch-source
-github
