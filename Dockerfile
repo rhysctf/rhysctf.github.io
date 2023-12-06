@@ -12,13 +12,8 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 RUN apt-get update && \
     apt-get install -y maven && \
     rm -rf /var/lib/apt/lists/*
-
-# Install Jenkins plugins
-RUN /usr/local/bin/install-plugins.sh \
-    pipeline \
-    maven-plugin \
-    sonar \
-    github-branch-source \
-    github
+# Install Jenkins plugins using the CLI
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
