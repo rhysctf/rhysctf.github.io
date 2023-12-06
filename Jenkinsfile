@@ -28,11 +28,11 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                // Deploy artifacts to staging or production
-                // (This stage can be added based on your project's deployment needs)
-            }
+        //stage('Deploy') {
+        //    steps {
+        //        // Deploy artifacts to staging or production
+        //        // (This stage can be added based on your project's deployment needs)
+        //    }
         }
     }
 
