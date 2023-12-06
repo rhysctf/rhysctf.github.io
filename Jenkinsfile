@@ -4,15 +4,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
-                // Add your build commands here
+                script {
+                    echo 'Building...'
+                    // Example: Use Maven for a Java project
+                    sh 'mvn clean install'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing...'
-                // Add your test commands here
+                script {
+                    echo 'Testing...'
+                    // Example: Run JUnit tests for a Java project
+                    sh 'mvn test'
+                }
             }
         }
 
