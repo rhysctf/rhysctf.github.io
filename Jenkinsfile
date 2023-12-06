@@ -2,11 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                // Checkout code from Git
-                git 'https://github.com/rhysctf/rhysctf.github.io.git'
-                
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {                
                 // Build using Maven
                 sh 'mvn clean install'
             }
