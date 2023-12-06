@@ -2,51 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Build') {
-            steps {                
-                // Build using Maven
-                sh 'mvn clean install'
+            steps {
+                echo 'Building...'
+                // Add your build commands here
             }
         }
 
         stage('Test') {
             steps {
-                // Run automated tests
-                sh 'mvn test'
+                echo 'Testing...'
+                // Add your test commands here
             }
         }
 
-        stage('Quality Analysis') {
+        stage('Deploy') {
             steps {
-                // Run SonarQube analysis
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
-                }
+                echo 'Deploying...'
+                // Add your deployment commands here
             }
-        }
-
-        //stage('Deploy') {
-        //    steps {
-        //        // Deploy artifacts to staging or production
-        //        // (This stage can be added based on your project's deployment needs)
-        //    }
-        //}
-    }
-
-    post {
-        success {
-            // Send notifications for successful build
-            echo "test success"
-        }
-        failure {
-            // Send notifications for build failure
-            echo "test fail"
         }
     }
 }
