@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Checkout code from Git
-                git 'https://github.com/rhysctf/rhysctf.github.io'
+                git 'https://github.com/rhysctf/rhysctf.github.io.git'
                 
                 // Build using Maven
                 sh 'mvn clean install'
