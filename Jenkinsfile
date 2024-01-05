@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-	    APP_NAME = "rhysctf.github.io-pipeline"
+	    APP_NAME = "rhysctf-github-io-pipeline"
         RELEASE = "1.0.0"
         DOCKER_USER = "rhys7homas"
         DOCKER_PASS = 'dockerhub'
